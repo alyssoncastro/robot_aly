@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://tgjtb744x202"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwdl8amcmwlhx" path="res://arm/ponto_fixo/eixo_fixo.obj" id="1_vpy0v"]
+[ext_resource type="ArrayMesh" uid="uid://dfo0233abvgq8" path="res://arm/deslocamento_pasta/hand.obj" id="2_f62kv"]
+[ext_resource type="Script" path="res://arm/hand.gd" id="3_5l2qb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="1_mesh3D" type="MultiMeshInstance3D" parent="."]
+
+[node name="eixo_rotacao" type="MeshInstance3D" parent="1_mesh3D"]
+transform = Transform3D(0.004, 0, 0, 0, 0.004, 0, 0, 0, 0.004, -0.0176343, 0, 0.000341177)
+mesh = ExtResource("1_vpy0v")
+skeleton = NodePath("../..")
+
+[node name="hand_deslocamento" type="Node" parent="."]
+
+[node name="hand" type="MeshInstance3D" parent="hand_deslocamento"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 77.4534, 0, 0)
+mesh = ExtResource("2_f62kv")
+skeleton = NodePath("../..")
+script = ExtResource("3_5l2qb")
